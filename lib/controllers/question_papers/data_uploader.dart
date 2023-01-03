@@ -1,6 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:educational_app/firebase_ref/loading_status.dart';
 import 'package:educational_app/firebase_ref/references.dart';
 import 'package:educational_app/models/question_paper_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +15,8 @@ class DataUploader extends GetxController {
     uploadData();
     super.onReady();
   }
+
+  final loadingStatus = LoadingStatus.loading.obs;
 
   Future<void> uploadData() async {
     final fireStore = FirebaseFirestore.instance;
