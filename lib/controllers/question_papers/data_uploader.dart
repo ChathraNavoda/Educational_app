@@ -1,7 +1,8 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:educational_app/firebase_ref/references.dart';
 import 'package:educational_app/models/question_paper_model.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -43,6 +44,21 @@ class DataUploader extends GetxController {
         "time_seconds": paper.timeSeconds,
         "questions_count": paper.questions == null ? 0 : paper.questions!.length
       });
+
+      for (var questions in paper.questions!) {
+        final questionPath =
+            questionRF(paperId: paper.id, questionId: questions.id);
+        batch.set(questionPath, {
+          "question": questions.question,
+          "correct_answer": questions.correctAnswer
+        });
+
+        //answer sub collection
+        for (var answer in questions.answers) {
+          batch.set(questionPath.collection("answer").doc(answer.identifier),
+              {"identifier": answer.identifier, "answer": answer.answer});
+        }
+      }
     }
 
     await batch.commit();
