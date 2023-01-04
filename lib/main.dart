@@ -1,3 +1,4 @@
+import 'package:educational_app/bindings/initial_bindings.dart';
 import 'package:educational_app/data_uploader_screen.dart';
 import 'package:educational_app/firebase_options.dart';
 import 'package:educational_app/routes/app_route.dart';
@@ -14,6 +15,8 @@ import 'package:get/get.dart';
 // }
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  InitialBindings().dependencies();
   runApp(MyApp());
 }
 
