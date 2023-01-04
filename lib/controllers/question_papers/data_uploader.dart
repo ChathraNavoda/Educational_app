@@ -16,9 +16,13 @@ class DataUploader extends GetxController {
     super.onReady();
   }
 
+  //loadingStatus is obs
   final loadingStatus = LoadingStatus.loading.obs;
 
   Future<void> uploadData() async {
+    //0
+    loadingStatus.value = LoadingStatus.loading;
+
     final fireStore = FirebaseFirestore.instance;
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
         .loadString("AssetManifest.json");
@@ -65,5 +69,6 @@ class DataUploader extends GetxController {
     }
 
     await batch.commit();
+    loadingStatus.value = LoadingStatus.completed;
   }
 }
