@@ -1,4 +1,5 @@
 import 'package:educational_app/bindings/initial_bindings.dart';
+import 'package:educational_app/configs/themes/app_dark_theme.dart';
 import 'package:educational_app/configs/themes/app_light_theme.dart';
 import 'package:educational_app/data_uploader_screen.dart';
 import 'package:educational_app/firebase_options.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        theme: LightTheme().buildLightTheme(),
+        theme: DarkTheme().buildDarkTheme(),
         debugShowCheckedModeBanner: false,
         getPages: AppRoutes.routes());
   }
