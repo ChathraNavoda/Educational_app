@@ -22,7 +22,13 @@ class AppIntroductionScreen extends StatelessWidget {
               const Icon(Icons.star, size: 65),
               SizedBox(height: 40),
               const Text(
-                  'This is a study app. You can use it as you want. If you understand how this works, you would be able to scale it.'),
+                'This is a study app. You can use it as you want. If you understand how this works, you would be able to scale it.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: onSurfaceTextColor,
+                    fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: 40),
               AppCircleButton(
                 onTap: () => null,
