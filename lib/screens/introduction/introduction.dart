@@ -19,7 +19,7 @@ class AppIntroductionScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.star, size: 65, color: Colors.amber),
+              const Icon(Icons.star, size: 65),
               SizedBox(height: 40),
               const Text(
                   'This is a study app. You can use it as you want. If you understand how this works, you would be able to scale it.'),
