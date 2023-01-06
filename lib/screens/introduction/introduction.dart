@@ -30,12 +30,10 @@ class AppIntroductionScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40),
-              AppCircleButton(
-                onTap: () => null,
-                child: const Icon(
-                  Icons.arrow_forward,
-                  size: 35,
-                ),
+              InkWell(
+                child: AppCircleButton(
+                    child: const Icon(Icons.arrow_forward, size: 35)),
+                onTap: () => Get.offAndToNamed("/home"),
               )
             ],
           ),
