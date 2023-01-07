@@ -17,9 +17,11 @@ import 'package:get/get.dart';
 //   runApp(GetMaterialApp(home: DataUploaderScreen()));
 // }
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   InitialBindings().dependencies();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
