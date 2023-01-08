@@ -48,7 +48,7 @@ class QuestionPaperModel {
         imageUrl = json['image_url'],
         description = json['Description'],
         timeSeconds = json['time_seconds'],
-        questionCount = json['question_count'] as int,
+        questionCount = json['questions_count'] as int,
         questions = [];
 
   Map<String, dynamic> toJson() {
