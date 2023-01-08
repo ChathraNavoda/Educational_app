@@ -27,7 +27,7 @@ class QuestionCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: ColoredBox(
-                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                  color: Theme.of(context).primaryColor.withOpacity(0.1),
                   child: SizedBox(
                     height: Get.width * 0.15,
                     width: Get.width * 0.15,
@@ -61,8 +61,34 @@ class QuestionCard extends StatelessWidget {
                     Row(
                       children: [
                         AppIconText(
-                            icon: Icon(Icons.help_outline_sharp),
-                            text: Text('${model.questionCount}'))
+                          icon: Icon(Icons.help_outline_sharp,
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor),
+                          text: Text(
+                            '${model.questionCount} Questions',
+                            style: detailText.copyWith(
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        AppIconText(
+                          icon: Icon(Icons.timer,
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor),
+                          text: Text(
+                            model.timeInMinutes(),
+                            style: detailText.copyWith(
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          ),
+                        )
                       ],
                     )
                   ],
