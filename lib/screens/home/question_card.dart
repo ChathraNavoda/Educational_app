@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:educational_app/configs/themes/custom_text_style.dart';
 import 'package:educational_app/configs/themes/ui_parameters.dart';
 import 'package:educational_app/models/question_paper_model.dart';
+import 'package:educational_app/widgets/app_icon_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -58,7 +59,11 @@ class QuestionCard extends StatelessWidget {
                       child: Text(model.description),
                     ),
                     Row(
-                      children: [],
+                      children: [
+                        AppIconText(
+                            icon: Icon(Icons.help_outline_sharp),
+                            text: Text('${model.questionCount}'))
+                      ],
                     )
                   ],
                 ),
