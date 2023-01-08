@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:educational_app/configs/themes/app_icons.dart';
 import 'package:educational_app/configs/themes/custom_text_style.dart';
 import 'package:educational_app/configs/themes/ui_parameters.dart';
 import 'package:educational_app/models/question_paper_model.dart';
@@ -109,7 +110,7 @@ class QuestionCard extends StatelessWidget {
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-                  child: Icon(Icons.wine_bar),
+                  child: Icon(AppIcons.trophyOutLine),
                   decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.only(
