@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:educational_app/configs/themes/ui_parameters.dart';
 import 'package:educational_app/controllers/question_papers/question_paper_controller.dart';
+import 'package:educational_app/screens/home/question_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,23 +15,11 @@ class HomeScreen extends StatelessWidget {
     QuestionPaperController _questionPaperController = Get.find();
     return Scaffold(
         body: Obx(() => ListView.separated(
+            padding: UIParameters.mobileScreenPadding,
             shrinkWrap: true,
             itemBuilder: (BuildContext context, int index) {
-              return ClipRRect(
-                child: SizedBox(
-                  height: 200,
-                  width: 200,
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        _questionPaperController.allPapers[index].imageUrl!,
-                    placeholder: (context, url) => Container(
-                      alignment: Alignment.center,
-                      child: const CircularProgressIndicator(),
-                    ),
-                    errorWidget: (context, url, error) =>
-                        Image.asset("assets/images/app_splash_logo.png"),
-                  ),
-                ),
+              return QuestionCard(
+                model: _questionPaperController.allPapers[index],
               );
             },
             separatorBuilder: (BuildContext context, int index) {
