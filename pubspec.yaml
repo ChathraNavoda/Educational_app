@@ -41,6 +41,7 @@ dependencies:
   firebase_storage: ^11.0.10
   cached_network_image: ^3.2.3
   firebase_auth: ^4.2.5
+  flutter_zoom_drawer: ^3.0.3
 
 dev_dependencies:
   flutter_test:
