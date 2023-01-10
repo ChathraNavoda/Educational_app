@@ -7,4 +7,14 @@ class MyZoomDrawerController extends GetxController {
     zoomDrawerController.toggle?.call();
     update();
   }
+
+  void signOut() {}
+
+  void signIn() {}
+
+  void website() {}
+
+  void email() {
+    Uri();
+  }
 }
