@@ -43,6 +43,9 @@ dependencies:
   firebase_auth: ^4.2.5
   flutter_zoom_drawer: ^3.0.3
   url_launcher: ^6.1.7
+  google_sign_in: ^5.4.2
+  logger: ^1.1.0
+  change_app_package_name: ^1.1.0
 
 dev_dependencies:
   flutter_test:

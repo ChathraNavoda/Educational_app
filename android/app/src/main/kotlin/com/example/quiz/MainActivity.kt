@@ -1,4 +1,4 @@
-package com.example.educational_app
+package com.example.quiz
 
 import io.flutter.embedding.android.FlutterActivity
 

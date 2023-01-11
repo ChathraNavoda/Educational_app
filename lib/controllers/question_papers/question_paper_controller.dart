@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:educational_app/controllers/auth_controller.dart';
 import 'package:educational_app/firebase_ref/references.dart';
 import 'package:educational_app/models/question_paper_model.dart';
 import 'package:educational_app/services/firebase_storage_services.dart';
+import 'package:educational_app/utils/app_logger.dart';
 import 'package:get/get.dart';
 
 class QuestionPaperController extends GetxController {
@@ -31,7 +33,22 @@ class QuestionPaperController extends GetxController {
 
       allPapers.assignAll(paperList);
     } catch (e) {
-      print(e);
+      AppLogger.e(e);
+    }
+  }
+
+  void navigateToQeustions(
+      {required QuestionPaperModel paper, bool tryAgain = false}) {
+    Authcontroller _authController = Get.find();
+    if (_authController.isLoggedIn()) {
+      if (tryAgain) {
+        Get.back();
+        //Get.offNamed(page);
+      } else {
+        //Get.toNamed(page)
+      }
+    } else {
+      _authController.showLoginAlertDialogue();
     }
   }
 }
