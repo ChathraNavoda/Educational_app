@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:educational_app/configs/themes/app_icons.dart';
 import 'package:educational_app/configs/themes/custom_text_style.dart';
 import 'package:educational_app/configs/themes/ui_parameters.dart';
+import 'package:educational_app/controllers/question_papers/question_paper_controller.dart';
 import 'package:educational_app/models/question_paper_model.dart';
 import 'package:educational_app/widgets/app_icon_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +11,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
-class QuestionCard extends StatelessWidget {
+class QuestionCard extends GetView<QuestionPaperController> {
   const QuestionCard({super.key, required this.model});
 
   final QuestionPaperModel model;
@@ -25,7 +26,7 @@ class QuestionCard extends StatelessWidget {
           color: Theme.of(context).cardColor),
       child: InkWell(
         onTap: () {
-          print('${model.title}');
+          controller.navigateToQeustions(paper: model);
         },
         child: Padding(
           padding: const EdgeInsets.all(_padding),
